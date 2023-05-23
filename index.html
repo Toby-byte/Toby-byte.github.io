@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Min Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="pynt.css">
+</head>
+<body>
+	<header>
+		<h1>Min Portfolio</h1>
+		<nav>
+			<ul>
+				<li><a href="#om-mig">Om mig</a></li>
+				<li><a href="#projekter">Projekter</a></li>
+				<li><a href="#kontakt">Kontakt</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="om-mig">
+			<h2>Om mig</h2>
+			<p>Jeg er en datamatikerstuderende med interesse for webudvikling.</p>
+		</section>
+
+		<section id="projekter">
+			<h2>Projekter</h2>
+
+			<article class="projekt">
+				<h3>Projekt 1</h3>
+				<p>Beskrivelse af projekt 1.</p>
+				<a href="#">Se projektet</a>
+			</article>
+
+			<article class="projekt">
+				<h3>Projekt 2</h3>
+				<p>Beskrivelse af projekt 2.</p>
+				<a href="#">Se projektet</a>
+			</article>
+
+			<article class="projekt">
+				<h3>Projekt 3</h3>
+				<p>Beskrivelse af projekt 3.</p>
+				<a href="#">Se projektet</a>
+			</article>
+
+		 </section>
+
+		 <section id="kontakt">
+		  <h2>Kontakt mig</h2>
+
+		  <form action="sendmail.php" method="post">
+            <label for="navn">Navn:</label><br />
+            <input type="text" id="navn" name="navn" /><br />
+            
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" /><br />
+            
+            <label for="besked">Besked:</label><br />
+            <textarea id="besked" name="besked"></textarea><br />
+            
+            <input type="submit" name="submit" value="Send besked" />
+            </form>
+
+		 </section>
+
+	  </main>
+
+	  <footer>© 2023 Min Portfolio</footer>
+
+	  <script src="script.js"></script>
+
+   </body>
+   </html> 
