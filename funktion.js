@@ -18,7 +18,8 @@ function init() {
     cubeGeometry = new THREE.BoxGeometry(1, 1, 1);  
     material = new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true, wireframeLinewidth: 2});
     cube = new THREE.Mesh(cubeGeometry, material);
-    cube.position.x = -2;  // Position it to the left
+    cube.position.x = 0;  // Position it to the left
+    cube.position.y = 2;
     scene.add(cube);
 
     // Sphere
@@ -30,7 +31,8 @@ function init() {
     // Tetrahedron
     tetraGeometry = new THREE.TetrahedronGeometry(1);  
     tetra = new THREE.Mesh(tetraGeometry, material);
-    tetra.position.x = 2;  // Position it to the right
+    tetra.position.x = 0;  // Position it to the right
+    tetra.position.y = -2;
     scene.add(tetra);
 }
 
