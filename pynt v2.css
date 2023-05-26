@@ -14,18 +14,50 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 	color: #333;
+	padding-top: 80px; /* to prevent content from being hidden by the fixed header */
 }
 
 header {
 	background-color: #2d6897;
-	color: #fff;
 	padding: 20px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+
+header h1 {
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	float: left;
 }
 
 nav ul {
 	list-style-type: none;
-	display: flex;
+	margin: 0;
+	padding: 0;
 }
+
+nav ul li {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	padding: 10px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+	background-color: #3498db;
+	color: #207cba;
+	border-radius: 5px;
+}
+
 
 nav li {
 	margin-right: 20px;
@@ -141,6 +173,23 @@ h2 {
 		margin: 10px 0;
 		padding: 15px 30px;  /* increased padding to make buttons larger */
 		font-size: 18px; /* increased font size for better visibility on small screens */
+	}
+
+	body {
+		padding-top: 100px; /* to prevent content from being hidden by the larger header on small screens */
+	}
+
+	header {
+		padding: 15px 10px; /* smaller horizontal padding to fit on small screens */
+	}
+
+	header h1 {
+		font-size: 18px; /* smaller font size to fit on small screens */
+	}
+
+	nav ul li a {
+		padding: 15px 10px; /* larger vertical padding to make links easier to tap on small screens */
+		font-size: 18px; /* larger font size for better visibility on small screens */
 	}
 }
 
