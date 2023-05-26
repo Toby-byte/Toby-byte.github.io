@@ -176,7 +176,7 @@ h2 {
 	}
 
 	body {
-		padding-top: 100px; /* to prevent content from being hidden by the larger header on small screens */
+		padding-top: 50px; /* to prevent content from being hidden by the larger header on small screens */
 	}
 
 	header {
