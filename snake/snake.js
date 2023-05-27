@@ -153,9 +153,10 @@ function moveTouch(e) {
     e.preventDefault();
 };
 
-document.addEventListener("touchstart", startTouch, false);
-document.addEventListener("touchmove", moveTouch, false);
-
+document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("touchstart", startTouch, false);
+    document.addEventListener("touchmove", moveTouch, false);
+});
 
 // Interval to continuously create the game board and move the snake
 setInterval(function() {
