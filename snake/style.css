@@ -2,30 +2,38 @@
 /* Styles to center the game board and score vertically */
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #000000;
+    background-color: #000;
+    color: #fff;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 /* Styles for the game board */
 #game-board {
     position: relative;
-    height: 400px;
-    width: 400px;
-    border: 2px solid black;
+    height: 80vmin; 
+    width: 80vmin; 
+    border: 1px solid #fff;
     background-color: #2ab15e;
-    margin-bottom: 20px;
+}
+
+.cell {
+    position: absolute;
+    background-color: #fff;
+    width: 2vmin; 
+    height: 2vmin;
 }
 
 /* Styles for the snake */
 .dot {
     position: absolute;
-    height: 20px;
-    width: 20px;
+    height: 2vmin;
+    width: 2vmin;
     background: #000;
 }
 
@@ -39,6 +47,10 @@ body {
 
 /* Styles for the score */
 #score {
-    font-size: 24px;
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+    font-size: 4vmin; 
     color: white;
 }

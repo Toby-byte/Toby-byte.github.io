@@ -1,5 +1,5 @@
 // Initial state of the snake in the middle of the game board
-var snake = [{ top: 200, left: 200 }];
+var snake = [{ top: 40, left: 40 }];
 
 // Initial state of the apple, which is null until placed on the board
 var apple = null;
@@ -16,27 +16,27 @@ function createGameBoard() {
     snake.forEach(function (dot, index) {
         var dotElement = document.createElement('div');
         dotElement.className = 'dot';
-        dotElement.style.left = `${dot.left}px`;
-        dotElement.style.top = `${dot.top}px`;
+        dotElement.style.left = `${dot.left}vmin`;
+        dotElement.style.top = `${dot.top}vmin`;
         document.getElementById('game-board').appendChild(dotElement);
     });
 
     // Create a new apple if there isn't one already
     if (apple === null) {
-        apple = { top: Math.floor(Math.random() * 20) * 20, left: Math.floor(Math.random() * 20) * 20 };
+        apple = { top: 2 * Math.floor(Math.random() * 40), left: 2 * Math.floor(Math.random() * 40) };
     }
     // Create a div for the apple
     var appleElement = document.createElement('div');
     appleElement.className = 'apple';
-    appleElement.style.left = `${apple.left}px`;
-    appleElement.style.top = `${apple.top}px`;
+    appleElement.style.left = `${apple.left}vmin`;
+    appleElement.style.top = `${apple.top}vmin`;
     document.getElementById('game-board').appendChild(appleElement);
 }
 
 // Function to check if the snake has collided with the wall or itself
 function checkCollision() {
     // Check if the snake's head has hit the wall
-    if (snake[0].top < 0 || snake[0].left < 0 || snake[0].top > 380 || snake[0].left > 380) {
+    if (snake[0].top < 0 || snake[0].left < 0 || snake[0].top >= 80 || snake[0].left >= 80) {
         return true;
     }
     // Check if the snake's head has hit its body
@@ -56,16 +56,16 @@ function moveSnake() {
     // Move the head in the current direction
     switch (direction) {
         case 'right':
-            head.left += 20;
+            head.left += 2;
             break;
         case 'down':
-            head.top += 20;
+            head.top += 2;
             break;
         case 'left':
-            head.left -= 20;
+            head.left -= 2;
             break;
         case 'up':
-            head.top -= 20;
+            head.top -= 2;
             break;
     }
     // Add the new head to the snake
@@ -82,14 +82,14 @@ function moveSnake() {
 
     // If the snake has collided, reset the game
     if (checkCollision()) {
-        snake = [{ top: 200, left: 200 }];
+        snake = [{ top: 40, left: 40 }];
         score = 0;
         document.getElementById('score').innerText = "Score: " + score;
         direction = 'right';
     }
 }
 
-// Event listener to change the direction based on arrow key presses
+// Event listener for keyboard inputs
 window.addEventListener('keydown', function(e) {
     switch (e.key) {
         case 'ArrowUp':
@@ -106,6 +106,56 @@ window.addEventListener('keydown', function(e) {
             break;
     }
 });
+
+// Touch events for mobile inputs
+var initialX = null;
+var initialY = null;
+
+function startTouch(e) {
+    initialX = e.touches[0].clientX;
+    initialY = e.touches[0].clientY;
+};
+
+function moveTouch(e) {
+    if (initialX === null || initialY === null) {
+        return;
+    }
+
+    var currentX = e.touches[0].clientX;
+    var currentY = e.touches[0].clientY;
+
+    var diffX = initialX - currentX;
+    var diffY = initialY - currentY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Sliding horizontally
+        if (diffX > 0) {
+            // Swiped left
+            direction = 'left';
+        } else {
+            // Swiped right
+            direction = 'right';
+        }  
+    } else {
+        // Sliding vertically
+        if (diffY > 0) {
+            // Swiped up
+            direction = 'up';
+        } else {
+            // Swiped down
+            direction = 'down';
+        } 
+    }
+
+    initialX = null;
+    initialY = null;
+
+    e.preventDefault();
+};
+
+document.addEventListener("touchstart", startTouch, false);
+document.addEventListener("touchmove", moveTouch, false);
+
 
 // Interval to continuously create the game board and move the snake
 setInterval(function() {
