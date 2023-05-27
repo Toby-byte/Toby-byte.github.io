@@ -40,8 +40,8 @@ body {
 /* Styles for the apple */
 .apple {
     position: absolute;
-    height: 20px;
-    width: 20px;
+    height: 2vmin;
+    width: 2vmin;
     background: #f00;
 }
 
