@@ -35,6 +35,10 @@ header h1 {
 	float: left;
 }
 
+.First-header {
+	text-align: center;
+}
+
 nav ul {
 	list-style-type: none;
 	margin: 0;
@@ -57,7 +61,6 @@ nav ul li a:hover {
 	color: #207cba;
 	border-radius: 5px;
 }
-
 
 nav li {
 	margin-right: 20px;
@@ -83,6 +86,49 @@ main {
 	padding: 20px;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-and-image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    flex: 1 0 60%;
+	margin-left: 4%;
+}
+
+.image-container {
+    flex: 1 0 30%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    width: 75%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .text-and-image {
+        flex-direction: column;
+    }
+    
+    .text, .image-container {
+        flex: 1 0 100%;
+    }
+    
+    .image {
+        max-width: 80%;
+		margin-bottom: 5%;
+    }
+}
 section {
 	margin-bottom: 40px;
 }
